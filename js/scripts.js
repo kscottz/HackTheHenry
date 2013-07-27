@@ -16,7 +16,8 @@ $(addTour).click(function(e) {
   $(addTour).remove();
 
   $('.content-wrap')
-    .find('h2').html('Selected Items')
+    .find('h2').html('Tour Items')
   .end()
-    .find('p').html("These are the items you've selected for your audio tour.");
+    .find('p').html("These are the items you've selected for your audio tour, great choices!");
+
 });

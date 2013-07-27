@@ -25,6 +25,7 @@
 .exhibit-item label input {
   position: absolute;
   left: .5em; top: .5em;
+  cursor: pointer;
 }
 
 .exhibit-item label img { 
@@ -48,4 +49,23 @@
 
 .btn:active {
   background: darken($blue, 5%);
+}
+
+#genTour, #socMedia {
+  display: none;
+}
+
+.soc-media ul {
+  list-style: none;
+  margin-bottom: 2em;
+
+  li {
+    margin-bottom: .5em;
+
+    label {
+      display: inline-block;
+      text-align: right;
+      width: 6.5em;
+    }
+  }
 }

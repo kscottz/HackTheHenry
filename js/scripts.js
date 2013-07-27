@@ -2,8 +2,6 @@ var addTour = document.getElementById('addTour');
 
 var genTour = document.getElementById('genTour');
 
-genTour.style.display = 'none';
-
 $(addTour).click(function(e) {
   e.preventDefault();
   $('.exhibit-item').each(function() {
@@ -14,5 +12,12 @@ $(addTour).click(function(e) {
   });
 
   $(genTour).show();
+  $('#socMedia').show();
   $(addTour).remove();
+
+  $('.content-wrap')
+    .find('h2').html('Tour Items')
+  .end()
+    .find('p').html("These are the items you've selected for your audio tour, great choices!");
+
 });

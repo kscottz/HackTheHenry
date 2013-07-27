@@ -1,5 +1,6 @@
 .drivingAmerica:hover,
 .skyHeroes:hover {
-	opacity: 0.5;
+	opacity: 0.8;
+	fill:#fff;
 	cursor: pointer;
 }

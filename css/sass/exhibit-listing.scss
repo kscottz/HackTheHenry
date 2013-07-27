@@ -19,6 +19,7 @@
   border: 1px solid #ccc;
   display: inline-block;
   min-width: 30em;
+  cursor: pointer;
 }
 
 .exhibit-item label input {
@@ -32,7 +33,8 @@
 
 .btn {
   border-radius: .3em;
-  padding: 1em;
+  padding: .5em;
+  font-size: 1.3em;
   border: 0;
   color: #fff;
   background: $blue;
@@ -40,4 +42,8 @@
 
 .btn:hover {
   background: lighten($blue, 5%);
+}
+
+.btn:active {
+  background: darken($blue, 10%);
 }

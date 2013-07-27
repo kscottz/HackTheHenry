@@ -98,10 +98,26 @@ class myHandler(BaseHTTPRequestHandler):
                     cdata['email'] = form[f].value
                 print form[f].value
             print cdata
+            #self.send_response(200)
+            #self.end_headers()
+            
+            #self.wfile.write(open('thanks.html','r'))
+            #Open the static file requested and send it
+            f = open(curdir + sep + 'thanks.html') 
+            mimetype='text/html'
+            self.send_response(200)
+            self.send_header('Content-type',mimetype)
+            self.end_headers()
+            self.wfile.write(f.read())
+            f.close()
+
+
+            
             if( cdata.has_key('twitter') ):
                 result = self.buildTour(data)
                 msg = "{0} here is your Henry Ford #HackTheMuseum Audio tour: {1}".format(cdata['twitter'],result)
                 self.tweetDat(msg)
+                pass
         return			
 			
 
@@ -172,7 +188,7 @@ class myHandler(BaseHTTPRequestHandler):
     def buildMap(self,mapImg,exhibitList,data,objMap):
         last = objMap[exhibitList[0]]
         mapImg.drawText('START',last[0],last[1])
-        derp = scv.ImageSet()
+        #derp = scv.ImageSet()
         for exhibit,info in zip(exhibitList,data):
             curr = objMap[exhibit]
             thumb = info['thumbs'][0].scale(0.5)
@@ -184,8 +200,8 @@ class myHandler(BaseHTTPRequestHandler):
             mapImg.drawCircle(curr,4,color=scv.Color.RED,thickness=3)
             last = curr
             mapImg = mapImg.applyLayers()
-            derp.append(mapImg)
-        derp.save('magic.gif')
+            #derp.append(mapImg)
+        #derp.save('magic.gif')
         retVal = mapImg.applyLayers()
         return retVal
 
@@ -194,8 +210,8 @@ class myHandler(BaseHTTPRequestHandler):
         myStr,data = self.generateTour(exhibitList)
         self.textToWav(myStr,'out.wav')
         self.wavToMp3('out.wav','out.mp3')
-        #out = self.buildMap(mapImg,exhibitList,data,self.objMap)
-        #out.save('outMap.png')
+        out = self.buildMap(mapImg,exhibitList,data,self.objMap)
+        out.save('outMap.png')
         result = self.SendToSC('out.mp3',"HELLO WORLD!!!")
         return result
 

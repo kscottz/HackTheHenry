@@ -14,7 +14,7 @@
 }
 
 .exhibit-item label {
-  padding: .5em 1em .5em 1.5em;
+  padding: .5em 1.5em;
   position: relative;
   border: 1px solid #ccc;
   display: inline-block;
@@ -28,22 +28,24 @@
 }
 
 .exhibit-item label img { 
-  vertical-align: top; 
+  vertical-align: middle; 
 }
 
 .btn {
   border-radius: .3em;
-  padding: .5em;
+  padding: 1.2em 0;
+  cursor: pointer;
   font-size: 1.3em;
+  width: 33rem;
   border: 0;
   color: #fff;
   background: $blue;
 }
 
 .btn:hover {
-  background: lighten($blue, 5%);
+  background: lighten($blue, 10%);
 }
 
 .btn:active {
-  background: darken($blue, 10%);
+  background: darken($blue, 5%);
 }

@@ -2,10 +2,22 @@
   background: $blue;
   padding: 1em 0;
   color: #fff;
+
+  h2 {
+    color: #fff;
+    font-weight: normal;
+    font-size: 1rem;
+    //padding-left: .5em;
+  }
 }
 
 .content-wrap {
-  padding: .5em 0 1em;
+  padding: 1em 0;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: $blue;
+  }
 }
 
 .inner {

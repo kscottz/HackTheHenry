@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
-<link href="css/style.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title></title>
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
   <header class="header-main">
     <div class="inner">
-      <h1>Team 42 - Hack the Henry</h1>
+      <h1>BYO Audio Tour</h1>
+      <h2>by Team 42</h2>
     </div>
   </header>
   <div class="content-wrap">
     <div class="inner">
-      <h2>Driving America</h2>
-      <p>Next, click the checkboxes to choose a list of exhibits that you would like to hear about on your walking tour. You can choose as many as you like. Go wild!</p>
+      <h2>Exhibit Name: Driving America</h2>
+      <p>Select from the list below items you would like to hear about on your walking tour. You can choose as many as you like. Go wild!</p>
   <form action="">
       <ul>
         <li class="exhibit-item">
@@ -82,10 +83,16 @@
           </label>
         </li>		
       </ul>
-      <button type="submit" class="btn">Add to tour</button>
+      <button id="addTour" class="btn">Add to Tour</button>
+      <button id="genTour" type="submit" class="btn">Generate Tour</button>
+
   </form>
   </div> <!-- end inner -->
 </div> <!-- end content-wrap -->
 </div> <!-- end wrapper -->
+  <script src="js/jquery.js"></script>
+
+  <script src="js/scripts.js"></script>
+
 </body>
 </html>

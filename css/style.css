@@ -1,0 +1,53 @@
+* {margin: 0; padding: 0;}
+
+body {
+  font: 16px Helvetica, Arial, sans-serif;
+}
+
+.header-main {
+  background: #111;
+  padding: 1em;
+  color: #fff;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+.content-wrap {
+  padding-top: .5em;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.inner {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.exhibit-item {
+  list-style: none;
+  margin-bottom: 1em;
+
+}
+.exhibit-item label {
+  padding: .5em 1em;
+  position: relative;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+.exhibit-item label input {
+  position: absolute;
+  left: .5em; top: .5em;
+}
+
+.exhibit-item label img { 
+  vertical-align: top; 
+}

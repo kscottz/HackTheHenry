@@ -1,13 +1,24 @@
 .exhibit-item {
   list-style: none;
   margin-bottom: 1em;
-
 }
+
+.exhibit-item label:before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width :25px;
+  background: $pink;
+  top: 0;
+  left: 0;
+}
+
 .exhibit-item label {
-  padding: .5em 1em;
+  padding: .5em 1em .5em 1.5em;
   position: relative;
   border: 1px solid #ccc;
   display: inline-block;
+  min-width: 30em;
 }
 
 .exhibit-item label input {
@@ -24,9 +35,9 @@
   padding: 1em;
   border: 0;
   color: #fff;
-  background: #1e225d;
+  background: $blue;
 }
 
 .btn:hover {
-  background: #2f336e;
+  background: lighten($blue, 5%);
 }

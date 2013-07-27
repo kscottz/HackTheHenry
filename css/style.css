@@ -1,74 +1,47 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\000031}}
+* { margin: 0; padding: 0; }
 
-body {
-  font: 16px 'Lato', Helvetica, Arial, sans-serif;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\000033}}
+body { font: 16px 'Lato', Helvetica, Arial, sans-serif; }
 
-h1 {
-  font-weight: normal;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\000037}}
+h1 { font-weight: normal; }
 
-h2 {
-  margin-bottom: 1rem;
-  color: #1e225d;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\0000311}}
+h2 { margin-bottom: 1rem; color: #17416b; }
 
-p {
-  margin-bottom: 1em;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\0000316}}
+p { margin-bottom: 1em; }
 
-a {
-  color: #ff6083;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/base\.scss}line{font-family:\0000320}}
+a { color: #ff3366; }
 
-.header-main {
-  background: #335599;
-  padding: 1em 0;
-  color: #fff;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/global\.scss}line{font-family:\000031}}
+.header-main { background: #17416b; padding: 1em 0; color: #fff; }
 
-.content-wrap {
-  padding-top: .5em;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/global\.scss}line{font-family:\000037}}
+.content-wrap { padding-top: .5em; }
 
-.inner {
-  margin: 0 auto;
-  width: 95%;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/global\.scss}line{font-family:\0000311}}
+.inner { margin: 0 auto; width: 95%; }
 
-.exhibit-item {
-  list-style: none;
-  margin-bottom: 1em;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\000031}}
+.exhibit-item { list-style: none; margin-bottom: 1em; }
 
-.exhibit-item label {
-  padding: .5em 1em;
-  position: relative;
-  border: 1px solid #ccc;
-  display: inline-block;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\000036}}
+.exhibit-item label:before { content: ""; position: absolute; height: 25px; width: 25px; background: #ff3366; top: 0; left: 0; }
 
-.exhibit-item label input {
-  position: absolute;
-  left: .5em;
-  top: .5em;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\0000316}}
+.exhibit-item label { padding: .5em 1em .5em 1.5em; position: relative; border: 1px solid #ccc; display: inline-block; min-width: 30em; }
 
-.exhibit-item label img {
-  vertical-align: top;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\0000324}}
+.exhibit-item label input { position: absolute; left: .5em; top: .5em; }
 
-.btn {
-  border-radius: .3em;
-  padding: 1em;
-  border: 0;
-  color: #fff;
-  background: #1e225d;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\0000329}}
+.exhibit-item label img { vertical-align: top; }
 
-.btn:hover {
-  background: #2f336e;
-}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\0000333}}
+.btn { border-radius: .3em; padding: 1em; border: 0; color: #fff; background: #17416b; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/HackTheHenry\/css\/sass\/exhibit-listing\.scss}line{font-family:\0000341}}
+.btn:hover { background: #1c4e80; }

@@ -1,0 +1,32 @@
+.exhibit-item {
+  list-style: none;
+  margin-bottom: 1em;
+
+}
+.exhibit-item label {
+  padding: .5em 1em;
+  position: relative;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+.exhibit-item label input {
+  position: absolute;
+  left: .5em; top: .5em;
+}
+
+.exhibit-item label img { 
+  vertical-align: top; 
+}
+
+.btn {
+  border-radius: .3em;
+  padding: 1em;
+  border: 0;
+  color: #fff;
+  background: #1e225d;
+}
+
+.btn:hover {
+  background: #2f336e;
+}

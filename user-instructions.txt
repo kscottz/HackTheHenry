@@ -1,0 +1,63 @@
+----------- screen 2 - map ------------------
+
+Welcome to the Henry Ford Museum Walking Tour Generator.
+
+This app will generate an audio walking tour of exhibits that you choose. Get started by clicking on an area of the museum.
+
+
+
+
+
+----------- screen 2 - choose exhibits ------------------
+
+Next, click the checkboxes to choose a list of exhibits that you would like to hear about on your walking tour. You can choose as many as you like. Go wild!
+
+[button text: Generate Walking Tour File]
+
+
+
+
+
+
+------------- screen 3: confirmation screen ---------------
+
+
+You have chosen the following exhibits for your Walking Tour:
+
+- exhibit 1
+- exhibit 2
+- exhibit 3
+...
+
+[Button text: Confirm]
+
+[Button text: Back to Exhibit List]
+
+
+
+
+
+---------- screen 4: transition screen ------------------
+
+
+The Henry Ford Museum Walking Tour Generator is generating your Walking Tour...
+
+[sweet gif]
+
+
+
+---------- screen 5: success screen------------------
+
+Audio file generated!
+
+You can find listen to your Walking Tour at any time by going to this URL in your browser:
+<url>
+
+[Button: Email me the link ________________________]
+
+[Button: SMS me the link _________________________]
+
+[Button: Share your walking tour on Facebook]
+
+
+Thanks for using the Henry Ford Walking Tour Generator!

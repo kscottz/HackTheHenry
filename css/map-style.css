@@ -1,6 +1,5 @@
-.drivingAmerica:hover,
-.skyHeroes:hover {
-	opacity: 0.8;
+a.rollOver:hover {
+	opacity: 0.7;
 	fill:#fff;
 	cursor: pointer;
 }

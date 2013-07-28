@@ -121,10 +121,11 @@ class myHandler(BaseHTTPRequestHandler):
             f.close()
 
             #comment this out
-            #result = self.buildTour(data)
+            result = self.buildTour(data)
             name = "Anonymous Coward"
             if(cdata.has_key('name')):
                 name = cdata['name']
+                print name
             msg = "Automatically Generated Audio Tour for {0}".format(name)
             snd = self.SendToSC("out.mp3",title=msg)
             link = self.uploadImgur('outMap.png')
@@ -256,8 +257,8 @@ class myHandler(BaseHTTPRequestHandler):
             mapImg = mapImg.applyLayers()
             mapImg = mapImg.blit(thumb,(curr[0]-offset[0],curr[1]-offset[1]),mask=thumb.binarize())
             mapImg.drawText(info['title'],curr[0]+20,curr[1]-20)
-            mapImg.drawLine(last,curr,thickness=1,color=scv.Color.RED)
-            mapImg.drawCircle(curr,4,color=scv.Color.RED,thickness=3)
+            #mapImg.drawLine(last,curr,thickness=1,color=scv.Color.RED)
+            #mapImg.drawCircle(curr,4,color=scv.Color.RED,thickness=3)
             last = curr
             mapImg = mapImg.applyLayers()
             #derp.append(mapImg)

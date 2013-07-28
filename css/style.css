@@ -45,7 +45,9 @@ a {
   color: #17416b;
 }
 .content-wrap .inner {
-  margin-left: 135px;
+/*  margin-left: 135px;*/
+  width: 820px;
+margin-left: 60px;
   }/* added by JAS */
 
 .inner {

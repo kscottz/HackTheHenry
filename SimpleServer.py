@@ -46,6 +46,9 @@ class myHandler(BaseHTTPRequestHandler):
             if self.path.endswith(".jpg"):
                 mimetype='image/jpg'
                 sendReply = True
+            if self.path.endswith(".png"):
+                mimetype='image/png'
+                sendReply = True
             if self.path.endswith(".gif"):
                 mimetype='image/gif'
                 sendReply = True
@@ -124,7 +127,7 @@ class myHandler(BaseHTTPRequestHandler):
                 name = cdata['name']
             msg = "Automatically Generated Audio Tour for {0}".format(name)
             snd = self.SendToSC("out.mp3",title=msg)
-            link = self.uploadImgur('magic2.gif')#outMap.png')
+            link = self.uploadImgur('outMap.png')
             if( cdata.has_key('phone') ):
                 msg = "Henry Ford map: {0} & audio {1}".format(link,snd)
                 pn = cdata['phone']
@@ -196,7 +199,7 @@ class myHandler(BaseHTTPRequestHandler):
         return retVal
 
     def textToWav(self,text,file_name):
-        print "txt to wav"
+        
         subprocess.call(["espeak","-ven-us","-s120","-a150","-p80","-w"+file_name,text])
     # 
     def wavToMp3(self,infile='temp.wav',outfile='temp.mp3'):

@@ -119,7 +119,11 @@ class myHandler(BaseHTTPRequestHandler):
 
             #comment this out
             #result = self.buildTour(data)
-            snd = self.SendToSC("out.mp3")
+            name = "Anonymous Coward"
+            if(cdata.has_key('name')):
+                name = cdata['name']
+            msg = "Automatically Generated Audio Tour for {0}".format(name)
+            snd = self.SendToSC("out.mp3",title=msg)
             link = self.uploadImgur('magic2.gif')#outMap.png')
             if( cdata.has_key('phone') ):
                 msg = "Henry Ford map: {0} & audio {1}".format(link,snd)
@@ -132,7 +136,10 @@ class myHandler(BaseHTTPRequestHandler):
                 
             if( cdata.has_key('twitter') ):
                 #link = self.uploadImgur('magic2.gif')
-                msg = ".{0} here is your Henry Ford #HackTheMuseum Audio tour: {1} and map {2}".format(cdata['twitter'],snd,link)
+                handle = cdata['twitter']
+                if( handle.find('@') == -1 ):
+                    handle = '@'+handle
+                msg = ".{0} here is your Henry Ford #HackTheMuseum Audio tour: {1} and map {2}".format(handle,snd,link)
                 self.tweetDat(msg)
 
         return
@@ -230,7 +237,9 @@ class myHandler(BaseHTTPRequestHandler):
             'sharing': 'public',  # make this 'public' if you want
             'asset_data': open(filename, 'rb')
             })
+        print track
         print track.permalink_url
+        print track.url
         return track.permalink_url
 
     def buildMap(self,mapImg,exhibitList,data,objMap):

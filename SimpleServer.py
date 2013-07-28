@@ -11,6 +11,10 @@ import pickle
 import SimpleCV as scv
 import time
 import twitter
+import base64
+import json
+import requests
+from base64 import b64encode
 
 PORT_NUMBER = 8080
 #This class will handles any incoming request from
@@ -28,7 +32,7 @@ class myHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path=="/":
-            self.path="/exhibit-items-screen.html"
+            self.path="/index.html"#exhibit-items-screen.html"
         try:
             #Check the file extension required and
             #set the right mime type
@@ -114,13 +118,36 @@ class myHandler(BaseHTTPRequestHandler):
 
             
             if( cdata.has_key('twitter') ):
-                result = self.buildTour(data)
-                msg = "{0} here is your Henry Ford #HackTheMuseum Audio tour: {1}".format(cdata['twitter'],result)
-                self.tweetDat(msg)
-                pass
+                link = self.uploadImgur('magic2.gif')
+                #result = self.buildTour(data)
+                #msg = "{0} here is your Henry Ford #HackTheMuseum Audio tour: {1} and map {2}".format(cdata['twitter'],result,link)
+                #self.tweetDat(msg)
+
         return			
 			
+    def uploadImgur(self,fname,name="Map!",title="Your Map of the Henry Ford"):
+        pkl_file = open('sc.pkl', 'rb')
+        sc = pickle.load(pkl_file)
+        headers = {"Authorization": "Client-ID {0}".format(sc['imgurID'])}
+        api_key = sc['imgurID']
+        url = "https://api.imgur.com/3/upload.json"
+        j1 = requests.post(
+            url, 
+            headers = headers,
+            data = {
+                'key': api_key, 
+                'image': b64encode(open(fname, 'rb').read()),
+                'type': 'base64',
+                'name': name,
+                'title': title
+                }
+            )
 
+        data = json.loads(j1.text)['data']
+        print data
+        return data['link']
+
+            
     def getObjData(self,id='83.190.1'):    
         itemstr = 'http://api.makerfairedetroit.com/item.aspx?objectid={0}'.format(id)
         stuff = urllib.urlretrieve(itemstr)

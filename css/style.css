@@ -49,6 +49,9 @@ a {
   margin: 0 auto;
   width: 95%;
 }
+.banner {
+  padding: .5em;
+}
 
 .exhibit-item {
   list-style: none;

@@ -3,6 +3,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
 import cgi
 import soundcloud
+from twilio.rest import TwilioRestClient
 import xml.etree.ElementTree as ET
 import urllib
 import subprocess
@@ -14,6 +15,7 @@ import twitter
 import base64
 import json
 import requests
+import string 
 from base64 import b64encode
 
 PORT_NUMBER = 8080
@@ -115,15 +117,34 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(f.read())
             f.close()
 
-
-            
+            #comment this out
+            #result = self.buildTour(data)
+            snd = self.SendToSC("out.mp3")
+            link = self.uploadImgur('magic2.gif')#outMap.png')
+            if( cdata.has_key('phone') ):
+                msg = "Henry Ford map: {0} & audio {1}".format(link,snd)
+                pn = cdata['phone']
+                all=string.maketrans('','')
+                nodigs=all.translate(all, string.digits)
+                pn = pn.translate(all, nodigs)
+                pn = "+1"+pn
+                self.sendSMS(msg,pn)
+                
             if( cdata.has_key('twitter') ):
-                link = self.uploadImgur('magic2.gif')
-                #result = self.buildTour(data)
-                #msg = "{0} here is your Henry Ford #HackTheMuseum Audio tour: {1} and map {2}".format(cdata['twitter'],result,link)
-                #self.tweetDat(msg)
+                #link = self.uploadImgur('magic2.gif')
+                msg = ".{0} here is your Henry Ford #HackTheMuseum Audio tour: {1} and map {2}".format(cdata['twitter'],snd,link)
+                self.tweetDat(msg)
 
-        return			
+        return
+
+    def sendSMS(self,msg,toNumber,fromNumber='+17347961119'):
+        pkl_file = open('sc.pkl', 'rb')
+        sc = pickle.load(pkl_file)
+        account_sid = sc["twilioID"]
+        auth_token = sc["twilioSecret"]
+        client = TwilioRestClient(account_sid, auth_token)        
+        message = client.sms.messages.create(to=toNumber, from_=fromNumber,body=msg)
+        print message
 			
     def uploadImgur(self,fname,name="Map!",title="Your Map of the Henry Ford"):
         pkl_file = open('sc.pkl', 'rb')

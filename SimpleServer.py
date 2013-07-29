@@ -105,6 +105,9 @@ class myHandler(BaseHTTPRequestHandler):
                     cdata['phone']= form[f].value
                 if( f == 'email'):
                     cdata['email'] = form[f].value
+                if( f == 'name'):
+                    cdata['name'] = form[f].value
+
                 print form[f].value
             print cdata
             #self.send_response(200)
@@ -121,12 +124,15 @@ class myHandler(BaseHTTPRequestHandler):
             f.close()
 
             #comment this out
-            result = self.buildTour(data)
+            self.buildTour(data)
             name = "Anonymous Coward"
+            #print cdata['name']
             if(cdata.has_key('name')):
                 name = cdata['name']
-                print name
+            print "Name {0}.".format(name)
+            
             msg = "Automatically Generated Audio Tour for {0}".format(name)
+            print "msg: "+msg
             snd = self.SendToSC("out.mp3",title=msg)
             link = self.uploadImgur('outMap.png')
             if( cdata.has_key('phone') ):
@@ -158,6 +164,7 @@ class myHandler(BaseHTTPRequestHandler):
         print message
 			
     def uploadImgur(self,fname,name="Map!",title="Your Map of the Henry Ford"):
+        #return "http://i.imgur.com/EcTPwTN.png"
         pkl_file = open('sc.pkl', 'rb')
         sc = pickle.load(pkl_file)
         headers = {"Authorization": "Client-ID {0}".format(sc['imgurID'])}
@@ -174,11 +181,15 @@ class myHandler(BaseHTTPRequestHandler):
                 'title': title
                 }
             )
-
-        data = json.loads(j1.text)['data']
-        print data
-        return data['link']
-
+        if( j1 is not None ):
+            data = json.loads(j1.text)['data']
+            if data is not None:
+                print data
+                return data['link']
+            else:
+                return "http://i.imgur.com/AZYlmFf.png"
+        else:
+            return "http://i.imgur.com/AZYlmFf.png"
             
     def getObjData(self,id='83.190.1'):    
         itemstr = 'http://api.makerfairedetroit.com/item.aspx?objectid={0}'.format(id)
@@ -273,8 +284,8 @@ class myHandler(BaseHTTPRequestHandler):
         self.wavToMp3('out.wav','out.mp3')
         out = self.buildMap(mapImg,exhibitList,data,self.objMap)
         out.save('outMap.png')
-        result = self.SendToSC('out.mp3',"HELLO WORLD!!!")
-        return result
+        #result = self.SendToSC('out.mp3',"HELLO WORLD!!!")
+        #return result
 
     
 try:
